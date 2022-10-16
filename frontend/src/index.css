@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Comic Neue", cursive;
+  font-size: 20px;
+}
+
+html,
+body,
+main,
+#root {
+  height: 100%;
+  background-color: #111111;
+}

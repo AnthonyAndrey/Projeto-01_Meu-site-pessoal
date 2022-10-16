@@ -1,0 +1,82 @@
+@import "../../styles/keyframes";
+@import "../../styles/times";
+
+.menuContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.menu {
+    // padding-left: 10px;
+    gap: 8px;
+    background-color: #202124;
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    background-image: url('/assets/bolinhas-menu.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &_itens {
+        gap: 8px;
+    }
+}
+
+.item {
+    &_menu {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-menu;
+    }
+    &_project {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-project;
+    }
+    &_contact {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-contact;
+    }
+    &_about {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-about;
+    }
+    &_configuration {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-configuration;
+    }
+}
+
+.button {
+    &_menu {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-menu;
+    }
+    &_project {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-project;
+    }
+    &_contact {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-contact;
+    }
+    &_about {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-about;
+    }
+    &_configuration {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-configuration;
+    }
+}
+
+
+.content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}

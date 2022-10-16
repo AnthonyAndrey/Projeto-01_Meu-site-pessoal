@@ -1,0 +1,17 @@
+@import "../../../styles/keyframes";
+@import "../../../styles/theme";
+@import "../../../styles/times";
+
+.overLayer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $background;
+    opacity: 0;
+    &--loadStart{
+        animation: $transition-between-pages-animation forwards linear appear;
+    }
+    &--loadEnd{
+        animation: $transition-between-pages-animation forwards linear disappear;
+    }
+}
