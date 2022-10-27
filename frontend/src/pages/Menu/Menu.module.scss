@@ -17,6 +17,7 @@
     background-image: url('/assets/menu-dots-dark.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    transition: $change-theme-transition;
     &--light{
         background-color: $background-light-2;
         background-image: url('/assets/menu-dots-light.svg');

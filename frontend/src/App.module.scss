@@ -1,12 +1,12 @@
 @import "./styles/theme";
+@import "./styles/times";
 
 .app{
   background-color: $background-dark-1;
   color: $text-color-dark;
-  transition: 50ms;
+  transition: $change-theme-transition;
   &--light{
     background-color:$background-light-1;
     color: $text-color-light;
   }
 }
-
