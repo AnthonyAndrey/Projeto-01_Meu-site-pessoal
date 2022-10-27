@@ -1,0 +1,12 @@
+@import "./styles/theme";
+
+.app{
+  background-color: $background-dark-1;
+  color: $text-color-dark;
+  transition: 50ms;
+  &--light{
+    background-color:$background-light-1;
+    color: $text-color-light;
+  }
+}
+

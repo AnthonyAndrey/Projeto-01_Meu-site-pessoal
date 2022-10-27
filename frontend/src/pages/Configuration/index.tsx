@@ -11,19 +11,32 @@ import * as NavigationActions from '../../store/ducks/navigation/actions'
 import * as ThemeActions from '../../store/ducks/theme/actions'
 
 interface StateProps {
-    navigate: NavigationState
+    navigate: NavigationState,
+    theme: ThemeState
 }
 
 interface DispatchProps {
     disableConfiguration(): void
+    darkTheme(): void
+    lightTheme(): void
+    turnOnThemeSwitchAnimation(): void
+    turnOffThemeSwitchAnimation(): void
 }
 
 
 type Props = StateProps & DispatchProps
 
-function Configuration({ navigate, disableConfiguration }: Props) {
+function Configuration({
+    navigate,
+    theme,
+    disableConfiguration,
+    darkTheme,
+    lightTheme,
+    turnOnThemeSwitchAnimation,
+    turnOffThemeSwitchAnimation }: Props) {
     const [seeMore, setSeeMore] = useState(false);
     const [seeMoreAnimation, setSeeMoreAnimation] = useState(false);
+  
     useEffect(() => { }, [navigate.configuration, seeMore]);
 
     function handleOverLayerClickEvent(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -31,6 +44,7 @@ function Configuration({ navigate, disableConfiguration }: Props) {
             setSeeMore(false)
             setSeeMoreAnimation(false)
             disableConfiguration()
+            if (theme.switchAnimation==true)turnOffThemeSwitchAnimation()
         }
     }
 
@@ -56,16 +70,17 @@ function Configuration({ navigate, disableConfiguration }: Props) {
         }
     }
 
-    function handleAlterTheme(){
-        //pra funcionar essa função eu tenho que agrupar as duas funções em
-        //um função switch que vê qual tema esta e troca como a função load 
-        // do react saga
+    function handleAlterTheme() {
+        turnOnThemeSwitchAnimation()
+        theme.selectedTheme === 'dark' ? lightTheme() : darkTheme();
+        // tem que salvar o tema no local storage
+        // quando iniciar o app tem que verificar se existe o local storage
     }
 
     function handleSeeMore() {
         if (seeMore == true) {
             return (
-                <div id='seeMore_container' className={style.seeMore_container} onClick={handleAlterTheme}>
+                <div id='seeMore_container' className={style.seeMore_container} >
                     <p id='seeMore_text' className={style.seeMore_text}>Viu? Eu disse que não tinha muito pra ver aqui.</p>
                     <img id='seeMore_img' className={style.seeMore_img} src="/assets/doge.png" alt="Meme do cachorro doge." />
                 </div>
@@ -73,19 +88,27 @@ function Configuration({ navigate, disableConfiguration }: Props) {
         }
     }
 
-
     function handleEnableConfiguration() {
         if (navigate.configuration == true) {
             return (
                 <>
-                    <div className={style.overLayer} onClick={(event) => handleOverLayerClickEvent(event)}>
+                    <div className={classNames({
+                        [style.overLayer]:true,
+                        [style["overLayer--light"]]:theme.selectedTheme === 'light',
+                    })} onClick={(event) => handleOverLayerClickEvent(event)}>
                         <div className={style.container}>
                             <h3 className={style.container_title}>Configurações</h3>
                             <div className={style.theme}>
                                 <p>Tema</p>
-                                <div className={style.theme_switch}>
-                                    <img className={style.theme_switch_circle} src="./assets/switch-circle.svg" alt="" />
-                                    <img src="./assets/switch-border.svg" alt="" />
+                                <div className={style.theme_switch} onClick={handleAlterTheme}>
+                                    <img className={classNames({
+                                        [style.theme_switch_circle]: true,
+                                        [style["theme_switch_circle--light"]]: theme.selectedTheme === 'light',
+                                        [style["theme_switch_circle--light_animation"]]: (theme.selectedTheme === 'light' && theme.switchAnimation === true),
+                                        [style["theme_switch_circle--dark_animation"]]: (theme.selectedTheme === 'dark' && theme.switchAnimation === true)
+                                    })} src={`./assets/switch-circle-${theme.selectedTheme}.svg`} alt="" />
+                                     {/* pra fazer a transição aqui precisa colocar a imagem no css */}
+                                    <img src={`./assets/switch-border-${theme.selectedTheme}.svg`} alt="" />
                                 </div>
                             </div>
                             <p>Linguagem</p>
@@ -114,8 +137,13 @@ const mapStateToProps = (state: ApplicationState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => (
-    bindActionCreators(NavigationActions, dispatch),
-    bindActionCreators(ThemeActions, dispatch)
+    bindActionCreators({
+        disableConfiguration: NavigationActions.disableConfiguration,
+        darkTheme: ThemeActions.darkTheme,
+        lightTheme: ThemeActions.lightTheme,
+        turnOnThemeSwitchAnimation: ThemeActions.turnOnThemeSwitchAnimation,
+        turnOffThemeSwitchAnimation: ThemeActions.turnOffThemeSwitchAnimation
+    }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Configuration)

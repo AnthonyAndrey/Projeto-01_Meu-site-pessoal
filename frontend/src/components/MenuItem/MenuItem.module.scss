@@ -1,17 +1,22 @@
 @import '../../styles/keyframes';
+@import '../../styles/theme';
 
 .item {
     cursor: pointer;
-    background-color: #202124;
+    background-color: $background-dark-2;
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 0 8px;
     transition: 200ms;
+    &--light{
+        background-color: $background-light-2;
+    }
 }
 
 .item:hover {
     background-color: #414141;
+    color: $text-color-dark;
 }
 
 .icon {
@@ -24,6 +29,5 @@
 
 .title {
     width: 100%;
-    color: #f1f1f1;
 }
 

@@ -1,5 +1,6 @@
 @import "../../styles/keyframes";
 @import "../../styles/times";
+@import "../../styles/theme";
 
 .menuContainer {
     display: flex;
@@ -8,70 +9,72 @@
 }
 
 .menu {
-    // padding-left: 10px;
     gap: 8px;
-    background-color: #202124;
+    background-color: $background-dark-2;
     height: 100%;
     width: fit-content;
     display: flex;
-    background-image: url('/assets/bolinhas-menu.svg');
+    background-image: url('/assets/menu-dots-dark.svg');
     background-repeat: no-repeat;
     background-size: cover;
-
+    &--light{
+        background-color: $background-light-2;
+        background-image: url('/assets/menu-dots-light.svg');
+    }
     &_itens {
         gap: 8px;
     }
 }
 
 .item {
-    &_menu {
-        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-        animation-delay: $menu-item-delay-menu;
-    }
-    &_project {
-        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-        animation-delay: $menu-item-delay-project;
-    }
-    &_contact {
-        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-        animation-delay: $menu-item-delay-contact;
-    }
-    &_about {
-        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-        animation-delay: $menu-item-delay-about;
-    }
-    &_configuration {
-        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-        animation-delay: $menu-item-delay-configuration;
-    }
+    // &_menu {
+    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+    //     animation-delay: $menu-item-delay-menu;
+    // }
+    // &_project {
+    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+    //     animation-delay: $menu-item-delay-project;
+    // }
+    // &_contact {
+    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+    //     animation-delay: $menu-item-delay-contact;
+    // }
+    // &_about {
+    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+    //     animation-delay: $menu-item-delay-about;
+    // }
+    // &_configuration {
+    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+    //     animation-delay: $menu-item-delay-configuration;
+    // }
 }
 
 .button {
-    &_menu {
-        opacity: 0;
-        animation: $menu-item-animation-appear forwards linear appear;
-        animation-delay: $menu-item-delay-menu;
-    }
-    &_project {
-        opacity: 0;
-        animation: $menu-item-animation-appear forwards linear appear;
-        animation-delay: $menu-item-delay-project;
-    }
-    &_contact {
-        opacity: 0;
-        animation: $menu-item-animation-appear forwards linear appear;
-        animation-delay: $menu-item-delay-contact;
-    }
-    &_about {
-        opacity: 0;
-        animation: $menu-item-animation-appear forwards linear appear;
-        animation-delay: $menu-item-delay-about;
-    }
-    &_configuration {
-        opacity: 0;
-        animation: $menu-item-animation-appear forwards linear appear;
-        animation-delay: $menu-item-delay-configuration;
-    }
+    // &_menu {
+    //     opacity: 0;
+    //     animation: $menu-item-animation-appear forwards linear appear;
+    //     animation-delay: $menu-item-delay-menu;
+    // }
+    // &_project {
+    //     opacity: 0;
+    //     animation: $menu-item-animation-appear forwards linear appear;
+    //     animation-delay: $menu-item-delay-project;
+    // }
+    // &_contact {
+    //     opacity: 0;
+    //     animation: $menu-item-animation-appear forwards linear appear;
+    //     animation-delay: $menu-item-delay-contact;
+    // }
+    // &_about {
+    //     opacity: 0;
+    //     animation: $menu-item-animation-appear forwards linear appear;
+    //     animation-delay: $menu-item-delay-about;
+    // }
+    // &_configuration {
+    //     opacity: 0;
+    //     animation: $menu-item-animation-appear forwards linear appear;
+    //     animation-delay: $menu-item-delay-configuration;
+    // }
 }
 
 

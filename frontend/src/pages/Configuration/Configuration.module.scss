@@ -11,23 +11,23 @@
     justify-content: center;
     background-color: rgba($color: #111111, $alpha: 0.7);
     backdrop-filter: blur(4px);
-    background-image: url("/assets/configuration.svg");
+    background-image: url("/assets/configuration-dark.svg");
     background-repeat: no-repeat;
     background-position: center;
-    // svg hover cursor pointer
+    &--light{
+        background-image: url("/assets/configuration-light.svg");
+    }
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    color: #f1f1f1;
     width: 700px;
     height: 500px;
     gap: 16px;
     padding: 16px;
     &_title {
         font-size: 32px;
-        color: #f1f1f1;
         font-weight: 600;
     }
 }
@@ -51,6 +51,16 @@
         &_circle{
             position: absolute;
             transform: translateX(6px);
+            &--light{
+                transform: translateX(30px);
+            }
+            &--light_animation{
+                animation:$configuration-theme-animation forwards cubic-bezier(0.19, 1, 0.22, 1) slide-out-right-theme-icon;
+                transform: translateX(30px);
+            }
+            &--dark_animation{
+                animation:$configuration-theme-animation forwards cubic-bezier(0.19, 1, 0.22, 1) slide-in-right-theme-icon;
+            }
         }
     }
 }
