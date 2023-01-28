@@ -1,6 +1,7 @@
 @import "../../styles/keyframes";
 @import "../../styles/times";
 @import "../../styles/theme";
+@import "../../styles/breakpoints";
 
 .menuContainer {
     display: flex;
@@ -12,15 +13,23 @@
     gap: 8px;
     background-color: $background-dark-2;
     height: 100%;
-    width: fit-content;
+    @media screen and (max-width: $mobile) {
+        width: 160px;
+    }
+    @media screen and (max-width: $desktop_w_sm) {
+        width: 170px;
+    }
+    @media screen and (max-width: $desktop_w_md) {
+        width: 194px;
+    }
     display: flex;
-    background-image: url('/assets/menu-dots-dark.svg');
+    background-image: url("/assets/menu-dots-dark.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: left bottom;
     transition: $change-theme-transition;
-    &--light{
+    &--light {
         background-color: $background-light-2;
-        background-image: url('/assets/menu-dots-light.svg');
+        background-image: url("/assets/menu-dots-light.svg");
     }
     &_itens {
         gap: 8px;
@@ -28,58 +37,58 @@
 }
 
 .item {
-    // &_menu {
-    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-    //     animation-delay: $menu-item-delay-menu;
-    // }
-    // &_project {
-    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-    //     animation-delay: $menu-item-delay-project;
-    // }
-    // &_contact {
-    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-    //     animation-delay: $menu-item-delay-contact;
-    // }
-    // &_about {
-    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-    //     animation-delay: $menu-item-delay-about;
-    // }
-    // &_configuration {
-    //     animation: $menu-item-animation-slide forwards ease-out slide-in-left;
-    //     animation-delay: $menu-item-delay-configuration;
-    // }
+    &_menu {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-menu;
+    }
+    &_project {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-project;
+    }
+    &_contact {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-contact;
+    }
+    &_about {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-about;
+    }
+    &_configuration {
+        animation: $menu-item-animation-slide forwards ease-out slide-in-left;
+        animation-delay: $menu-item-delay-configuration;
+    }
 }
 
 .button {
-    // &_menu {
-    //     opacity: 0;
-    //     animation: $menu-item-animation-appear forwards linear appear;
-    //     animation-delay: $menu-item-delay-menu;
-    // }
-    // &_project {
-    //     opacity: 0;
-    //     animation: $menu-item-animation-appear forwards linear appear;
-    //     animation-delay: $menu-item-delay-project;
-    // }
-    // &_contact {
-    //     opacity: 0;
-    //     animation: $menu-item-animation-appear forwards linear appear;
-    //     animation-delay: $menu-item-delay-contact;
-    // }
-    // &_about {
-    //     opacity: 0;
-    //     animation: $menu-item-animation-appear forwards linear appear;
-    //     animation-delay: $menu-item-delay-about;
-    // }
-    // &_configuration {
-    //     opacity: 0;
-    //     animation: $menu-item-animation-appear forwards linear appear;
-    //     animation-delay: $menu-item-delay-configuration;
-    // }
+    &_menu {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-menu;
+    }
+    &_project {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-project;
+    }
+    &_contact {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-contact;
+    }
+    &_about {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-about;
+    }
+    &_configuration {
+        opacity: 0;
+        animation: $menu-item-animation-appear forwards linear appear;
+        animation-delay: $menu-item-delay-configuration;
+    }
 }
 
-
-.content{
+.content {
+    overflow: overlay;
     position: relative;
     height: 100%;
     width: 100%;

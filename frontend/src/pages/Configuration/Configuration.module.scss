@@ -1,10 +1,13 @@
 @import "../../styles/keyframes";
 @import "../../styles/times";
+@import "../../styles/breakpoints";
 
 .overLayer {
     position: absolute;
     width: 100%;
     height: 100%;
+    min-width: 550px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,34 +17,52 @@
     background-image: url("/assets/configuration-dark.svg");
     background-repeat: no-repeat;
     background-position: center;
-    // transition: $change-theme-transition;
-    &--light{
+    // background-size: 65vw 90vh; // tava assim antes, tem que testar na tv
+    background-size: 690px;
+    transition: $change-theme-transition;
+    &--light {
         background-image: url("/assets/configuration-light.svg");
+    }
+    @media screen and (max-width: $desktop_w_md) and (min-width: calc($desktop_w_sm + 1px)) {
+        background-size: 690px;
+        min-height: 600px;
+    }
+    @media screen and (max-width: $desktop_w_sm) and (min-width: calc($desktop_w_xsm + 1px)) {
+        background-size: 570px;
+        min-height: 600px;
+    }
+    @media screen and (max-width: $desktop_w_xsm) and (min-width: calc($mobile + 1px)) {
+        background-size: 500px;
+        min-height: 500px;
+    }
+    @media screen and (max-width: $mobile) {
+        background-size: 500px;
+        min-height: 500px;
     }
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 700px;
-    height: 500px;
+    width: 21em;
+    height: 17em;
     gap: 16px;
-    padding: 16px;
     &_title {
-        font-size: 32px;
+        font-size: 2rem;
         font-weight: 600;
+        padding-bottom: 4px;
     }
 }
+
 .container p {
-    padding: 16px 0;
+    padding: 8px 0;
 }
 
 .theme {
     display: flex;
     align-items: center;
     gap: 16px;
-    
-
+    justify-content: space-between;
     &_switch {
         cursor: pointer;
         position: relative;
@@ -49,18 +70,20 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        &_circle{
+        &_circle {
             position: absolute;
             transform: translateX(6px);
-            &--light{
+            &--light {
                 transform: translateX(30px);
             }
-            &--light_animation{
-                animation:$configuration-theme-animation forwards cubic-bezier(0.19, 1, 0.22, 1) slide-out-right-theme-icon;
+            &--light_animation {
+                animation: $configuration-theme-animation forwards cubic-bezier(0.19, 1, 0.22, 1)
+                    slide-out-right-theme-icon;
                 transform: translateX(30px);
             }
-            &--dark_animation{
-                animation:$configuration-theme-animation forwards cubic-bezier(0.19, 1, 0.22, 1) slide-in-right-theme-icon;
+            &--dark_animation {
+                animation: $configuration-theme-animation forwards cubic-bezier(0.19, 1, 0.22, 1)
+                    slide-in-right-theme-icon;
             }
         }
     }

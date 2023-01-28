@@ -1,21 +1,19 @@
 @import '../../styles/keyframes';
 @import '../../styles/theme';
+@import '../../styles/times';
 
 .item {
     cursor: pointer;
-    background-color: $background-dark-2;
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 0 8px;
     transition: 200ms;
-    &--light{
-        background-color: $background-light-2;
-    }
+    
 }
 
 .item:hover {
-    background-color: #414141;
+    background-color: rgba($color: #414141, $alpha: 0.7);
     color: $text-color-dark;
 }
 

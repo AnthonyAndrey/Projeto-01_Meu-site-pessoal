@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { connect } from "react-redux";
 import { ApplicationState } from "../../store";
 import { ThemeState } from "../../store/ducks/theme/types";
@@ -20,7 +21,9 @@ function handleIconColor(theme:ThemeState) {
 
 
 function HomeIcon({ theme, size }: Props) {
-    
+    useEffect(() => {
+        console.log("ta renderizando aaaaaaa");
+    }, []);
     function handleSize() {
         switch (size) {
             case 36:

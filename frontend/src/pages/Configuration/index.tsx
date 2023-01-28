@@ -36,7 +36,7 @@ function Configuration({
     turnOffThemeSwitchAnimation }: Props) {
     const [seeMore, setSeeMore] = useState(false);
     const [seeMoreAnimation, setSeeMoreAnimation] = useState(false);
-  
+
     useEffect(() => { }, [navigate.configuration, seeMore]);
 
     function handleOverLayerClickEvent(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -44,7 +44,7 @@ function Configuration({
             setSeeMore(false)
             setSeeMoreAnimation(false)
             disableConfiguration()
-            if (theme.switchAnimation==true)turnOffThemeSwitchAnimation()
+            if (theme.switchAnimation == true) turnOffThemeSwitchAnimation()
         }
     }
 
@@ -93,23 +93,24 @@ function Configuration({
             return (
                 <>
                     <div className={classNames({
-                        [style.overLayer]:true,
-                        [style["overLayer--light"]]:theme.selectedTheme === 'light',
+                        [style.overLayer]: true,
+                        [style["overLayer--light"]]: theme.selectedTheme === 'light',
                     })} onClick={(event) => handleOverLayerClickEvent(event)}>
                         <div className={style.container}>
                             <h3 className={style.container_title}>Configurações</h3>
                             <div className={style.theme}>
                                 <p>Tema</p>
-                                <div className={style.theme_switch} onClick={handleAlterTheme}>
-                                    <img className={classNames({
-                                        [style.theme_switch_circle]: true,
-                                        [style["theme_switch_circle--light"]]: theme.selectedTheme === 'light',
-                                        [style["theme_switch_circle--light_animation"]]: (theme.selectedTheme === 'light' && theme.switchAnimation === true),
-                                        [style["theme_switch_circle--dark_animation"]]: (theme.selectedTheme === 'dark' && theme.switchAnimation === true)
-                                    })} src={`./assets/switch-circle-${theme.selectedTheme}.svg`} alt="" />
-                                     {/* pra fazer a transição aqui precisa colocar a imagem no css */}
-                                    <img src={`./assets/switch-border-${theme.selectedTheme}.svg`} alt="" />
-                                </div>
+                                    <div className={style.theme_switch} onClick={handleAlterTheme}>
+                                        <img className={classNames({
+                                            [style.theme_switch_circle]: true,
+                                            [style["theme_switch_circle--light"]]: theme.selectedTheme === 'light',
+                                            [style["theme_switch_circle--light_animation"]]: (theme.selectedTheme === 'light' && theme.switchAnimation === true),
+                                            [style["theme_switch_circle--dark_animation"]]: (theme.selectedTheme === 'dark' && theme.switchAnimation === true)
+                                        })} src={`./assets/switch-circle-${theme.selectedTheme}.svg`} alt="" />
+                                        {/* pra fazer a transição aqui precisa colocar a imagem no css */}
+                                        <img src={`./assets/switch-border-${theme.selectedTheme}.svg`} alt="" />
+                                    </div>
+
                             </div>
                             <p>Linguagem</p>
                             <p

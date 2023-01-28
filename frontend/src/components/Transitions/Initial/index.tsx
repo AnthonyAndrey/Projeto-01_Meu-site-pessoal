@@ -11,16 +11,16 @@ interface StateProps {
 }
 
 interface DispatchProps {
-    transitionEnd(): void
+    loadEnd(): void
 }
 
 type Props = StateProps & DispatchProps
 
 
-function Initial({animation,transitionEnd}:Props) {
+function Initial({animation,loadEnd}:Props) {
 
     function handleTransition() {
-        setTimeout(() => transitionEnd(), 1200)
+        setTimeout(() => loadEnd(), 1200)
     }
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function Initial({animation,transitionEnd}:Props) {
 
     return (
         <>
-            {animation.transition == true ? <div className={style.overLayer}></div> : <></>}
+            {animation.load == true ? <div className={style.overLayer}></div> : <></>}
         </>
     )
 }

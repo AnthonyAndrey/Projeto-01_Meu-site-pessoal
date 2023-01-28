@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
+import React from 'react';
 import style from './MenuItem.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { NavigationDelay } from '../../utils/navigationDelay';
@@ -26,7 +26,7 @@ interface OwnProps {
     children?: React.ReactNode,
     text: string,
     to?: string,
-    styles: string | undefined
+    styles?: string 
 }
 
 type Props = StateProps & DispatchProps & OwnProps
